@@ -1,4 +1,4 @@
-# <img src="https://github.com/Electrostat-Lab/ffplay-ip-cam/.assets/ip-cam.png" width=80 height=80/> ffplay-ip-cam
+# <img src="https://github.com/Electrostat-Lab/ffplay-ip-cam/blob/master/.assets/ip-cam.png" width=150 height=150/> ffplay-ip-cam
 
 Introduces abstract scripts for ip-cameras manipulation using ffmpeg ffplay library, in addition to ready-to-use configurations for Tenda CP3pro both in full and sub-optimal resolutions.
 
@@ -7,7 +7,7 @@ W.I.P
 
 ## Script Architecture 
 * Architecture:
-> ![NOTE] 
+> [!NOTE] 
 > The base software architecture utilized here is based on applying decomposition by the means of juxtaposition and superposition, followed by applying designation to these components to find their constructs or abstract entities, and then putting these together into a System-Entity-Structure framework which could be interpreted to a simple hierarchial software pattern, where entities are on the top, and concrete configurations are on the bottom.
 
 ```mermaid
