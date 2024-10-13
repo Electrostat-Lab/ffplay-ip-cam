@@ -26,7 +26,7 @@ Introduces abstract scripts for ip-cameras manipulation using ffmpeg ffplay libr
 - [x] Abstract Generic IP Manipulation, filter, and mapping scripts.
 - [x] Abstract ffplay scripts.
 - [x] Test cases for the IP Manipulation and the ffplay scripts.
-- [x] Ready-to-use configurations for _Tenda C3pro_ both in audio, and no audio stream modes in addition to the full and suboptimal resolution components.
+- [x] Ready-to-use configurations for _Tenda CP3pro_ both in audio, and no audio stream modes in addition to the full and suboptimal resolution components.
 - [x] A/V Filter Modules (e.g., Color Filter Module, Frame Filter Module, Audio Filter Module).
 
 ## FFMPEG, AV-Codecs, and AV-Filters
