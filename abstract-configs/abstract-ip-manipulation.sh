@@ -14,7 +14,7 @@
 # The overall pattern matches something like this: 192.168.0.1.
 
 ipadd_pattern="([0-9]{1,3}\.){3}[0-9]{1,3}"
-macadd_pattern="([0-9][A-Z]{1,2}\:){5}[0-9][A-Z]{1,2}"
+# macadd_pattern="([0-9][A-Z]{1,2}\:){5}[0-9][A-Z]{1,2}"
 
 function setup_bettercap() {
     sudo apt install build-essential libpcap-dev libusb-1.0-0-dev libnetfilter-queue-dev
@@ -26,7 +26,11 @@ function write_endpoints() {
     endpoints_filepath=${1}
     millis=${2}
     pattern=${3}
-    sudo bettercap -eval "net.probe on;sleep ${millis};quit" | grep -oE "${pattern}" > $endpoints_filepath
+    cam_mac=${4}
+
+    sudo bettercap -eval "events.stream off;net.probe on;sleep 1;set net.show.filter ${cam_mac};net.show;quit" > "${endpoints_filepath}-bettercap"
+
+    cat "${endpoints_filepath}-bettercap" | grep -oE "${pattern}" > "${endpoints_filepath}"
 }
 
 function get_endpoints() {

@@ -14,5 +14,5 @@ endpoints_out=("")
 
 get_endpoints "./endpoints.txt" "${endpoints_out}"
 
-ffplay_try_on_endpoints "${endpoints_out[*]}" "-fs" "Test-Stream" "tcp" "all" "video" \
-                "${credentials}" "${streaming_port}" "${streaming_component}"
+ffmpeg_try_on_endpoints "${endpoints_out[*]}" "" "10" "tcp" \
+                "${credentials}" "${streaming_port}" "${streaming_component}" "./test.mp4" "$vf_roi"
