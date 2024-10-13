@@ -14,5 +14,8 @@ endpoints_out=("")
 
 get_endpoints "./endpoints.txt" "${endpoints_out}"
 
+# remove logo and overlays
+set_vf_crop "in_w/1.3" "in_h/1.3" 
+
 ffmpeg_try_on_endpoints "${endpoints_out[*]}" "" "10" "tcp" \
-                "${credentials}" "${streaming_port}" "${streaming_component}" "./test.mp4" "$vf_roi"
+                "${credentials}" "${streaming_port}" "${streaming_component}" "./test.mp4" "$vf_specifier $vf_roi,$vf_crop"

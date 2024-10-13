@@ -24,11 +24,14 @@ function setup_bettercap() {
 
 function write_endpoints() {
     endpoints_filepath=${1}
-    millis=${2}
+    seconds=${2}
     pattern=${3}
     cam_mac=${4}
 
-    sudo bettercap -eval "events.stream off;net.probe on;sleep 1;set net.show.filter ${cam_mac};net.show;quit" > "${endpoints_filepath}-bettercap"
+    sudo bettercap -eval "events.stream off; \
+                         net.probe on;sleep ${seconds}; \
+                         set net.show.filter ${cam_mac};net.show; \
+                         quit" > "${endpoints_filepath}-bettercap"
 
     cat "${endpoints_filepath}-bettercap" | grep -oE "${pattern}" > "${endpoints_filepath}"
 }
