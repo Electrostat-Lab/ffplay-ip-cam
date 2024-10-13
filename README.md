@@ -17,10 +17,42 @@ Introduces abstract scripts for ip-cameras manipulation using ffmpeg ffplay libr
 > [!NOTE] 
 > The base software architecture utilized here is based on applying decomposition by the means of juxtaposition and superposition, followed by applying designation to these components to find their constructs or abstract entities, and then putting these together into a System-Entity-Structure framework which could be interpreted to a simple hierarchial software pattern, where entities are on the top, and concrete configurations are on the bottom.
 
-```mermaid
-```
-
 <img src="https://github.com/Electrostat-Lab/ffplay-ip-cam/blob/master/.assets/SES-ffplay-ip.jpeg"/>
+
+* A more concrete paradigm (very close proximity to the script semantics):
+```mermaid
+---
+title: SES For ffplay-ip-cam Project
+---
+erDiagram
+  IP-Reconnoitering {
+    module IP-Filters
+  }
+  IP-Manipulation {
+    parameter IP-Filters[]
+    void Setup-bettercap
+    void Get-Endpoints
+    void Write-Endpoints
+  }
+
+  AV-Codecs {
+    module AV-Filters
+  }
+  AV-Streaming {
+      parameter AV-Filters[]
+      void Ffplay
+      void Try-on-endpoints
+  }
+  AV-Recording {
+      parameters AV-Filters
+      void Ffplay
+      void Try-on-endpoints
+  }
+  
+  IP-Reconnoitering ||--o{ IP-Manipulation: Specialization
+  AV-Codecs ||--o{ AV-Streaming: Aspect
+  AV-Codecs ||--o{ AV-Recording: Aspect
+```
 
 * Features:
 - [x] Abstract Generic IP Manipulation, filter, and mapping scripts.
