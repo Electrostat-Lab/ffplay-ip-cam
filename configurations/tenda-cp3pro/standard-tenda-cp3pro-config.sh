@@ -18,4 +18,4 @@ set_vf_crop "in_w/1.3" "in_h/1.3"
 # apply video filters
 ffplay_try_on_endpoints "${endpoints_out[*]}" \
     "-fs" "${window_title}" "tcp" "all" "video" \
-    "admin:admin123456" "554" "tenda" "$vf_roi"
+    "admin:admin123456" "554" "tenda" "$vf_specifier $vf_roi,$vf_crop"
